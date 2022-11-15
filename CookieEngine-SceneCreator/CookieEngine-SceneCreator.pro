@@ -9,12 +9,14 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    globals.cpp \
     main.cpp \
     menu.cpp \
     scenecreator.cpp \
     sceneobject.cpp
 
 HEADERS += \
+    globals.h \
     menu.h \
     scenecreator.h \
     sceneobject.h

@@ -72,6 +72,15 @@ SceneCreator::SceneCreator(QWidget *parent, QString path_to_gameobjects) :
     this->LoadGameobjects(path_to_gameobjects);
     this->scene = new QGraphicsScene(this->ui->sceneEditor);
     this->ui->sceneEditor->setScene(this->scene);
+    this->SetupScene();
+}
+
+void SceneCreator::SetupScene() {
+    QPen pen(Qt::gray);
+    for(int i = 0; i < 100; i++){
+        this->scene->addLine(-1800, -1800 + (i*32), 1800, -1800 + (i*32), pen);
+        this->scene->addLine(-1800 + (i*32), -1800, -1800 + (i*32), 1800, pen);
+    }
 }
 
 void CheckForParams(QString line, Parameters* params) {
@@ -155,8 +164,9 @@ void SceneCreator::UpdateStatusbar() {
 }
 
 void SceneCreator::ClearScene() {
-    this->scene->clear();
-    this->objectsInScene.clear();
+    foreach(SceneObject *item, this->objectsInScene){
+        this->scene->removeItem(item);
+    }
 }
 
 void SceneCreator::on_insertButton_clicked()

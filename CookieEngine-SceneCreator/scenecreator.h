@@ -52,6 +52,7 @@ private:
     void ReloadObjectList(QMap<QString, Parameters> objects);
     void UpdateStatusbar();
     void ClearScene();
+    void SetupScene();
 
     vector<SceneObject*> objectsInScene;
     QMap<QString, Brush*> objectBrushes;
