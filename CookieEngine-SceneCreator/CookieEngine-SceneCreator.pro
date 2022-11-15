@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     menu.cpp \
-    scenecreator.cpp
+    scenecreator.cpp \
+    sceneobject.cpp
 
 HEADERS += \
     menu.h \
-    scenecreator.h
+    scenecreator.h \
+    sceneobject.h
 
 FORMS += \
     menu.ui \

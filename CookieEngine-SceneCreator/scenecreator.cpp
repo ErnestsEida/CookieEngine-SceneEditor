@@ -154,13 +154,25 @@ void SceneCreator::UpdateStatusbar() {
 
 }
 
+void SceneCreator::ClearScene() {
+    this->scene->clear();
+    this->objectsInScene.clear();
+}
+
 void SceneCreator::on_insertButton_clicked()
 {
     if (this->selectedObject >= 0) {
         Brush *drawingBrush = new Brush(this->objectBrushes[this->gameObjects.keys()[this->selectedObject]]);
         QPen pen(drawingBrush->color);
         QBrush brush(drawingBrush->color, drawingBrush->pattern);
-        QGraphicsRectItem* item = this->scene->addRect(0, 0, this->gameObjects.value(this->gameObjects.keys()[this->selectedObject])["ColliderWidth"].toInt(), this->gameObjects.value(this->gameObjects.keys()[this->selectedObject])["ColliderHeight"].toInt(), pen, brush);
-        item->setFlag(QGraphicsItem::ItemIsMovable);
+        SceneObject* object = new SceneObject(this->gameObjects.value(this->gameObjects.keys()[this->selectedObject])["ColliderWidth"].toInt(), this->gameObjects.value(this->gameObjects.keys()[this->selectedObject])["ColliderHeight"].toInt(), pen, brush);
+        this->scene->addItem(object);
+        this->objectsInScene.push_back(object);
     }
 }
+
+void SceneCreator::on_clearButton_clicked()
+{
+    this->ClearScene();
+}
+

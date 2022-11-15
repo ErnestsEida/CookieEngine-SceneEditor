@@ -6,6 +6,8 @@
 #include <vector>
 #include <QtWidgets>
 
+#include <sceneobject.h>
+
 using namespace std;
 
 typedef QMap<QString, QString> Parameters;
@@ -43,11 +45,15 @@ private slots:
 
     void on_insertButton_clicked();
 
+    void on_clearButton_clicked();
+
 private:
     void LoadGameobjects(QString path_to_gameobjects);
     void ReloadObjectList(QMap<QString, Parameters> objects);
     void UpdateStatusbar();
+    void ClearScene();
 
+    vector<SceneObject*> objectsInScene;
     QMap<QString, Brush*> objectBrushes;
     int selectedObject = -1;
     QGraphicsScene* scene;
