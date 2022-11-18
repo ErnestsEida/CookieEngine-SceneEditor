@@ -5,6 +5,7 @@
 #include <QtCore>
 #include <vector>
 #include <QtWidgets>
+#include <QTimer>
 
 #include <sceneobject.h>
 
@@ -47,14 +48,24 @@ private slots:
 
     void on_clearButton_clicked();
 
+    void on_eraserButton_clicked();
+
+    void on_toggleGrid_stateChanged(int arg1);
+
+    void on_gridSize_valueChanged(int arg1);
+
+    void on_pushButton_clicked();
+
 private:
     void LoadGameobjects(QString path_to_gameobjects);
     void ReloadObjectList(QMap<QString, Parameters> objects);
-    void UpdateStatusbar();
+    void UpdateStatus();
     void ClearScene();
-    void SetupScene();
+    void DrawGrid();
 
+    QTimer* timer;
     vector<SceneObject*> objectsInScene;
+    vector<QGraphicsLineItem*> gridLines;
     QMap<QString, Brush*> objectBrushes;
     int selectedObject = -1;
     QGraphicsScene* scene;

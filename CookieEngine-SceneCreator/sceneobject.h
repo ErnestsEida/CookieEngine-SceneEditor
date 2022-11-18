@@ -12,14 +12,20 @@ private:
     QRect rect;
     QPen pen;
     QBrush brush;
+    QString objectType;
+
 public:
-    SceneObject(int width, int height, QPen pen, QBrush brush);
+    static SceneObject* selectedObject;
+
+    SceneObject(QString objectType, int width, int height, QPen pen, QBrush brush);
     QRectF boundingRect() const;
+    QString getObjectType() const;
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-protected:
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
+protected:
+    QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant &value);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // SCENEOBJECT_H

@@ -14,38 +14,12 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string>Toolbox</string>
+   <item row="3" column="1">
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string/>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QPushButton" name="insertButton">
-        <property name="text">
-         <string>Insert Selected</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="eraserButton">
-        <property name="text">
-         <string>Eraser</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="clearButton">
-        <property name="text">
-         <string>Clear scene</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QGraphicsView" name="sceneEditor"/>
    </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="groupBox_2">
@@ -78,7 +52,97 @@
      </layout>
     </widget>
    </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Toolbox</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="insertButton">
+        <property name="styleSheet">
+         <string notr="true">Background: rgb(90, 173, 230)</string>
+        </property>
+        <property name="text">
+         <string>Insert Selected</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" rowspan="3">
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string/>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="2" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Cell Size</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QSpinBox" name="gridSize">
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="maximum">
+            <number>10000</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QCheckBox" name="toggleGrid">
+           <property name="text">
+            <string>Snap To Grid</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="clearButton">
+        <property name="styleSheet">
+         <string notr="true">background: rgb(192, 191, 188)</string>
+        </property>
+        <property name="text">
+         <string>Clear scene</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="eraserButton">
+        <property name="text">
+         <string>Eraser</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QGraphicsView" name="sceneEditor"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="styleSheet">
+      <string notr="true">background: rgb(87, 227, 137)</string>
+     </property>
+     <property name="text">
+      <string>Save Scene</string>
+     </property>
+    </widget>
+   </item>
   </layout>
+  <action name="actionSaveScene">
+   <property name="text">
+    <string>SaveScene</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
