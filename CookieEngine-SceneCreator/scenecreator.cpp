@@ -139,7 +139,7 @@ void SceneCreator::LoadGameobjects(QString path_to_gameobjects) {
     foreach(QString filename, files) {
         // Reset data on new file
         params = new Parameters();
-        selectedGameobject = NULL;
+        selectedGameobject = "";
         file = new QFile(path_to_gameobjects + "/" + filename);
 
         if (file->open(QIODevice::ReadWrite)) {
@@ -156,9 +156,11 @@ void SceneCreator::LoadGameobjects(QString path_to_gameobjects) {
             }
 
             // Add finished gameobject to map
-            this->gameObjects.insert(selectedGameobject, *params);
-            Brush *brush = getBrush();
-            this->objectBrushes.insert(selectedGameobject, brush);
+            if (selectedGameobject != "") {
+                this->gameObjects.insert(selectedGameobject, *params);
+                Brush *brush = getBrush();
+                this->objectBrushes.insert(selectedGameobject, brush);
+            }
         }
     }
     this->ReloadObjectList(this->gameObjects);
